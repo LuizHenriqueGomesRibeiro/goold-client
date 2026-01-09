@@ -8,7 +8,7 @@ const Primary = css`
   color: #ffffff;
   display: flex;
   height: 2.75rem;
-  padding: 0.625rem 104.19px;
+  padding: 9px 30px;
 
   font-size: 16px;
   font-weight: 600;

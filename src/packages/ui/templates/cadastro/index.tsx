@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { Content, LoginForm, LoginHeader, Text } from "../../components";
 import styled from "styled-components";
+import { Content, LoginHeader, RegisterForm, Text } from "../../components";
 
 const CenteredContainer = styled.div`
   display: flex;
@@ -19,15 +19,16 @@ const CenteredContainer = styled.div`
 
   gap: 1.5625rem;
 
-  height: calc(100vh - 86px);
+  position: relative;
+  margin: 86px 0;
 `;
 
-export default function LoginTemplate() {
+export default function CadastroTemplate() {
   return <Content>
     <LoginHeader/>
     <CenteredContainer>
-      <Text type="title">Entre na sua conta</Text>
-      <LoginForm />
+      <Text type="title">Cadastre-se</Text>
+      <RegisterForm/>
     </CenteredContainer>
   </Content>
 }

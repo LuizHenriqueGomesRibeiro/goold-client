@@ -23,6 +23,10 @@ const Component = styled.span<{ $type: InputType }>`
     font-family: "Montserrat", sans-serif;
   }
 
+  > span {
+    height: 20px;
+  }
+
   > input {
     display: flex;
     height: 44px;
@@ -41,6 +45,7 @@ const Component = styled.span<{ $type: InputType }>`
     font-style: normal;
     font-weight: 400;
     line-height: 20px; 
+    width: auto;
   }
 
   ${({ $type }) => {

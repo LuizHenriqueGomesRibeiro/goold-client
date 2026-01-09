@@ -7,7 +7,11 @@ import Button from "../buttons";
 
 const Component = styled.div`
   border-bottom: 1px solid ${colors['light-brown']};
-
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+  background: ${colors["primary-layout"]};
+  
   > div {
     display: flex;
     flex-direction: row;
@@ -15,6 +19,9 @@ const Component = styled.div`
     height: 2.75rem; 
     margin: 1.25rem auto;
     justify-content: space-between;
+
+    > button {
+    }
   }
 `
 

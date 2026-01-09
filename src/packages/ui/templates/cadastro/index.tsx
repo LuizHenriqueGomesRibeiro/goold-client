@@ -1,27 +1,22 @@
 "use client";
 
-import styled from "styled-components";
 import { Content, LoginHeader, RegisterForm, Text } from "../../components";
 import { CadastroHookProps } from "@/src/packages/core/hooks/cadastro";
+import styled from "styled-components";
 
 const CenteredContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: visible;
+  display: flex;
 
-  flex: 1;
-
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-
+  min-height: calc(100vh - 86px);
+  padding: 50px 0 80px 0;
+  margin-top: 86px;
   gap: 1.5625rem;
-
-  position: relative;
-  margin: 86px 0;
+  width: 100%;
+  flex: 1;
 `;
 
 interface CadastroTemplateProps extends CadastroHookProps {

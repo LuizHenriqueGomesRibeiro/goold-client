@@ -15,10 +15,11 @@ const Component = styled.div`
   > div {
     display: flex;
     flex-direction: row;
-    max-width: 77.5rem;
+    max-width: 81.5rem;
     height: 2.75rem; 
     margin: 1.25rem auto;
     justify-content: space-between;
+    padding: 0 2rem;
 
     > button {
     }

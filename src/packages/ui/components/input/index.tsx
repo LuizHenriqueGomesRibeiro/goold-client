@@ -1,8 +1,9 @@
 "use client";
 
 import styled, { css } from "styled-components";
-import Text from "../text";
+import { IMaskInput } from "react-imask";
 import colors from "../../themes";
+import Text from "../text";
 import React from "react";
 
 const Password = css`
@@ -66,13 +67,18 @@ type InputProps = {
   label?: React.ReactNode;
   placeholder?: string;
   disabled?: boolean;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+  mask?: string;
+} & Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "type" | "value"
+>;
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(({
     type = "normal",
     label,
     placeholder,
     disabled = false,
+    mask,
     ...props
   },
   ref
@@ -81,13 +87,19 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({
       {label && <span>
         <Text type="normal">{label}</Text>
       </span>}
-      <input
+      {mask ? <IMaskInput
+        mask={mask}
+        disabled={disabled}
+        inputRef={ref}
+        placeholder={placeholder}
+        {...props}
+      /> : <input
         ref={ref}
         placeholder={placeholder}
         disabled={disabled}
-        type={type === "normal" ? "text" : type}
+        type={type === "password" ? "password" : "text"}
         {...props}
-      />
+      />}
     </Component>
   }
 );

@@ -1,11 +1,31 @@
+"use client";
 
+import { Content, LateralBar } from "@/src/packages/ui/components";
+import colors from "@/src/packages/ui/themes";
+import styled from "styled-components";
+
+const SystemLayout = styled.div`
+  flex-direction: row;
+  display: flex;
+`
+
+const CurrentLayout = styled.div`
+  width: calc(100% - 260px);
+  margin-left: 260px;
+  height: 100vh;
+  background-color: ${colors["secundary-layout"]};
+`
 
 export default function Layout({ children }: {
   children: React.ReactNode;
 }) {
 
-  return <>
-    "barra lateral"
-    {children}
-  </>
+  return <Content>
+    <SystemLayout>
+      <LateralBar/>
+      <CurrentLayout>
+        {children}
+      </CurrentLayout>
+    </SystemLayout>
+  </Content>
 }

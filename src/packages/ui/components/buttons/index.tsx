@@ -36,6 +36,10 @@ const Link = css`
   text-underline-position: from-font;
 `;
 
+const Lateral = css`
+
+`
+
 type ButtonType = "primary" | "link";
 
 const Component = styled.button<{ $type: ButtonType }>`

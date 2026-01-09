@@ -1,10 +1,11 @@
 "use client";
 
+import { CadastroFormFields } from "@/src/packages/core/hooks/cadastro";
 import CommonFormContent from "../CommonFormContent";
 import styled from "styled-components";
-import Input from "../../input";
-import Button from "../../buttons";
 import colors from "../../../themes";
+import Button from "../../buttons";
+import Input from "../../input";
 
 const FormContent = styled.div`
   display: flex;
@@ -35,23 +36,26 @@ const FormContent = styled.div`
   }
 `
 
-export default function RegisterForm() {
+interface RegisterFormProps {
+  register: CadastroFormFields
+}
 
+export default function RegisterForm({ register }: RegisterFormProps) {
   return <CommonFormContent>
     <FormContent>
       <div>
-        <Input label={<>Nome <span>(obrigatorio)</span></>} placeholder="ex.: Jose"/>
-        <Input label={<>Sobrenome <span>(obrigatorio)</span></>} placeholder="ex.: Lima"/>
+        <Input label={<>Nome <span>(obrigatorio)</span></>} placeholder="ex.: Jose" {...register('name')}/>
+        <Input label={<>Sobrenome <span>(obrigatorio)</span></>} placeholder="ex.: Lima" {...register('surname')}/>
       </div>
-      <Input label={<>E-mail <span>(obrigatorio)</span></>} placeholder="Insira seu e-mail"/>
-      <Input label={<>Senha de acesso <span>(obrigatorio)</span></>} placeholder="Insira sua senha"/>
+      <Input label={<>E-mail <span>(obrigatorio)</span></>} placeholder="Insira seu e-mail" {...register('email')}/>
+      <Input label={<>Senha de acesso <span>(obrigatorio)</span></>} placeholder="Insira sua senha" {...register('password')}/>
       <section/>
-      <Input label={<>CEP <span>(obrigatorio)</span></>} placeholder="Insira sua senha"/>
-      <Input label={<>Endereço</>} />
-      <Input label={<>Número</>} />
-      <Input label={<>Complemento</>} placeholder="Insira sua senha"/>
-      <Input label={<>Cidade</>} placeholder="Insira seu CEP"/>
-      <Input label={<>Estado</>} placeholder="Insira seu e-mail"/>
+      <Input label={<>CEP <span>(obrigatorio)</span></>} placeholder="cep" {...register('cep')} />
+      <Input label={<>Endereço</>} disabled placeholder="Insira sua senha" {...register('address')}/>
+      <Input label={<>Número</>} placeholder="00" {...register('number')}/>
+      <Input label={<>Complemento</>} placeholder="complemento" {...register('complement')}/>
+      <Input label={<>Cidade</>} placeholder="cidade" {...register('city')}/>
+      <Input label={<>Estado</>} placeholder="estado" {...register('state')}/>
       <footer>
         <Button>Cadastrar-se</Button>
       </footer>

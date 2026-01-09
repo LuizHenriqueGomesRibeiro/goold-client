@@ -3,6 +3,7 @@
 import styled, { css } from "styled-components";
 import Text from "../text";
 import colors from "../../themes";
+import React from "react";
 
 const Password = css`
 
@@ -14,7 +15,7 @@ const Normal = css`
 
 type InputType = "password" | "normal";
 
-const Component = styled.span<{ $type: InputType }>`
+const Component = styled.span<{ $type: InputType, $disabled: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -37,9 +38,10 @@ const Component = styled.span<{ $type: InputType }>`
 
     border-radius: 5px;
     border: 1px solid ${colors["light-brown"]};
-    background: #FFF;
 
-    color: #AFAFAF;
+    background-color: ${({ $disabled }) => $disabled ? colors["light-grey"] : colors["white"]};
+
+    color: ${colors.black};
 
     font-size: 14px;
     font-style: normal;
@@ -59,14 +61,36 @@ const Component = styled.span<{ $type: InputType }>`
   }}
 `;
 
+type InputProps = {
+  type?: InputType;
+  label?: React.ReactNode;
+  placeholder?: string;
+  disabled?: boolean;
+} & React.InputHTMLAttributes<HTMLInputElement>;
 
-export default function Input({ type = "normal", label, placeholder }: { type?: InputType, label?: React.ReactNode, placeholder?: string }) {
-  return <Component $type={type}>
-    <span>
-      <Text type="normal">
-        {label}
-      </Text>
-    </span>
-    <input placeholder={placeholder}/>
-  </Component>
-}
+const Input = React.forwardRef<HTMLInputElement, InputProps>(({
+    type = "normal",
+    label,
+    placeholder,
+    disabled = false,
+    ...props
+  },
+  ref
+) => {
+    return <Component $type={type} $disabled={disabled}>
+      {label && <span>
+        <Text type="normal">{label}</Text>
+      </span>}
+      <input
+        ref={ref}
+        placeholder={placeholder}
+        disabled={disabled}
+        type={type === "normal" ? "text" : type}
+        {...props}
+      />
+    </Component>
+  }
+);
+
+Input.displayName = "Input";
+export default Input;

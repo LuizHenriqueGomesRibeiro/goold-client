@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { Content, LoginHeader, RegisterForm, Text } from "../../components";
+import { CadastroHookProps } from "@/src/packages/core/hooks/cadastro";
 
 const CenteredContainer = styled.div`
   display: flex;
@@ -23,12 +24,16 @@ const CenteredContainer = styled.div`
   margin: 86px 0;
 `;
 
-export default function CadastroTemplate() {
+interface CadastroTemplateProps extends CadastroHookProps {
+
+}
+
+export default function CadastroTemplate({ register }: CadastroTemplateProps) {
   return <Content>
     <LoginHeader/>
     <CenteredContainer>
       <Text type="title">Cadastre-se</Text>
-      <RegisterForm/>
+      <RegisterForm register={register}/>
     </CenteredContainer>
   </Content>
 }

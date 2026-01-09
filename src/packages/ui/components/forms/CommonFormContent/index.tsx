@@ -8,7 +8,7 @@ export const Component = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 28rem;
+  max-width: 28rem;
   border: 1px solid ${colors["light-brown"]};
   border-radius: 5px;
   background: ${colors["secundary-layout"]};

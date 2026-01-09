@@ -1,12 +1,15 @@
+import { Calendar, Log, Logo, People } from "../images";
 import styled from "styled-components";
 import colors from "../../themes";
-import { Calendar, Log, Logo, People } from "../images";
+import Text from "../text";
 
 const Component = styled.div`
   width: 260px;
   position: fixed;
   height: 100vh;
   border-right: 1px solid ${colors["light-brown"]};
+  background-color: ${colors["primary-layout"]};
+  z-index: 11;
 
   > header {
     border-bottom: 1px solid ${colors["light-brown"]};
@@ -34,20 +37,23 @@ const Component = styled.div`
       gap: 10px;
       
       > div {
-        background-color: rebeccapurple;
         flex-direction: row;
         display: flex;
         border-radius: 5px;
         padding: 12px;
         gap: 15px;
       }
-  
     }
   
     > footer {
       border-top: 1px solid #D7D7D7;
       height: 70px;
-      padding: 17px 19px 16px 21px
+      padding: 17px 19px 16px 21px;
+
+      > section {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 `
@@ -66,19 +72,25 @@ export default function LateralBar() {
       <main>
         <div>
           <Calendar />
-          <span>Agendamento</span>
+          <Text>Agendamento</Text>
         </div>
         <div>
           <People />
-          <span>Agendamento</span>
+          <Text>Clientes</Text>
         </div>
         <div>
           <Log />
-          <span>Agendamento</span>
+          <Text>Logs</Text>
         </div>
       </main>
       <footer>
-        dwdw
+        <section>
+          <Text>Mateus Barbosa</Text>
+          <Text>
+            <span>Admin</span>
+          </Text>
+        </section>
+        
       </footer>
 
     </section>

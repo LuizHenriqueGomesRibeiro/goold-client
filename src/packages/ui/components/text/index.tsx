@@ -8,6 +8,8 @@ const Title = css`
   font-size: 28px;
   font-weight: 600;
   font-style: normal;
+  line-height: 28px;
+  height: 34px;
 `;
 
 const Normal = css`

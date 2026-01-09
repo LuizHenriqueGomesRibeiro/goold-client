@@ -14,6 +14,7 @@ const CurrentLayout = styled.div`
   margin-left: 260px;
   height: 100vh;
   background-color: ${colors["secundary-layout"]};
+  z-index: 10;
 `
 
 export default function Layout({ children }: {

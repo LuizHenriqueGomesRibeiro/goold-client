@@ -1,10 +1,10 @@
 "use client";
 
 import styled from "styled-components";
+import Paginator from "../paginator";
+import colors from "../../themes";
 import Button from "../buttons";
 import Input from "../input";
-import colors from "../../themes";
-import Paginator from "../paginator";
 
 const SearcherContainerComponent = styled.div`
   flex-direction: column;
@@ -14,25 +14,25 @@ const SearcherContainerComponent = styled.div`
   gap: 25px;
 
   > section {
-    border: 1px solid #D7D7D7;
-    justify-content: center;
+    border: 1px solid ${colors["light-brown"]};
     flex-direction: column;
     display: flex;
     border-radius: 5px;
     padding: 30px;
+    height: 100%;
 
     > header {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding-bottom: 20px;
       border-bottom: 1px solid ${colors["light-brown"]};
+      justify-content: space-between;
+      flex-direction: row;
+      display: flex;
+      padding-bottom: 20px;
 
       > div {
-        display: flex;
         flex-direction: row;
-        gap: 15px;
+        display: flex;
         width: 633px;
+        gap: 15px;
 
         > span:nth-child(1) {
           width: 441px !important;
@@ -47,9 +47,9 @@ const SearcherContainerComponent = styled.div`
   }
 
   > footer {
-    height: 26px;
-    display: flex;
     justify-content: center;
+    display: flex;
+    height: 26px;
   }
 `
 

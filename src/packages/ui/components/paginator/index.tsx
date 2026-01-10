@@ -14,38 +14,38 @@ const PaginatorComponent = styled.div`
   gap: 7px;
 
   > section {
-    display: flex;
-    width: 17px;
-    height: 18px;
-    flex-direction: column;
+    background: ${colors.black};
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    display: flex;
     aspect-ratio: 17/18;
     border-radius: 4px;
-    background: ${colors.black};
+    height: 18px;
+    width: 17px;
+    gap: 10px;
+    cursor: pointer;
   }
 
   > span {
-    display: flex;
-    width: 25.2px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    align-self: stretch;
-    border-radius: 5px;
     background: ${colors.black};
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    border-radius: 5px;
+    width: 25.2px;
+    gap: 10px;
   }
 `
 
 export default function Paginator() {
-
   return <PaginatorComponent>
     <section>
       <Left/>
     </section>
-    <Text type="normal" selected>1</Text>
+    <Text type="normal-12" selected>1</Text>
     <section>
       <Right/>
     </section>

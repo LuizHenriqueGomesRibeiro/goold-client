@@ -24,13 +24,20 @@ const Normal = css<{ $selected?: boolean }>`
   }
 `;
 
-type TextType = "title" | "normal";
+const Normal12 = css`
+  ${Normal};
+  font-size: 12px;
+`
+
+type TextType = "title" | "normal" | "normal-12";
 
 const TextComponent = styled.span<{ $type: TextType, $selected?: boolean }>`
   font-family: "Montserrat", sans-serif;
 
   ${({ $type }) => {
     switch ($type) {
+      case "normal-12":
+        return Normal12;
       case "title":
         return Title;
       case "normal":

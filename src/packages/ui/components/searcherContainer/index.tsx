@@ -18,7 +18,7 @@ const SearcherContainerComponent = styled.div`
     flex-direction: column;
     display: flex;
     border-radius: 5px;
-    padding: 30px;
+    padding: 30px 30px 0 30px;
     height: 100%;
 
     > header {
@@ -37,12 +37,11 @@ const SearcherContainerComponent = styled.div`
         > span:nth-child(1) {
           width: 441px !important;
         }
-
       }
     }
 
     > main {
-
+      height: 100%;
     }
   }
 

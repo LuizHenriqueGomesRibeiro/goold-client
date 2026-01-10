@@ -1,7 +1,8 @@
 "use client"
 
-import CalendarSVG from "@/public/calendar.svg";
+import { ReactSVG } from "react-svg";
 import styled, { css } from "styled-components";
+import CalendarSVG from "@/assets/calendar.svg";
 import PeopleSVG from "@/public/people.svg";
 import RightSVG from "@/public/right.svg";
 import LeftSVG from "@/public/left.svg";
@@ -16,19 +17,21 @@ export function Logo() {
 const PreImageStyle = css<{ $selected?: boolean }>`
   && {
     color: ${({ $selected }) => ($selected ? colors.white : "currentColor")};
-    
     path, rect, circle {
       fill: currentColor;
     }
   }
 `
 
-const PreCalendar = styled(CalendarSVG)<{ $selected?: boolean }>`
-  ${PreImageStyle}
-`;
-
-export function Calendar({ selected }: { selected?: boolean }) {
-  return <PreCalendar $selected={selected} />
+export function Calendar({ selected, size }: { selected?: boolean, size?: number }) {
+  return <ReactSVG
+    src='/calendar.svg'
+    beforeInjection={(svg) => {
+      svg.setAttribute("fill", selected ? "white" : "black");
+      size && svg.setAttribute("width", `${size}`);
+      size && svg.setAttribute("height", `${size}`);
+    }}
+  />
 }
 
 const PrePeople = styled(PeopleSVG)<{ $selected?: boolean }>`

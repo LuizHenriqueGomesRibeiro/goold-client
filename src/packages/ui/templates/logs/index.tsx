@@ -22,7 +22,8 @@ const LogsTable = styled.div`
   }
 
   > main {
-
+    height: calc(100% - 114px);
+    overflow-y: auto;
     > section {
       border-bottom: 1px solid ${colors["light-brown"]};
       flex-direction: row;
@@ -68,14 +69,14 @@ export default function LogsTemplate() {
             <div><Text type="normal-12">Data e horário</Text></div>
           </header>
           <main>
-            <section>
+            {[1, 2, 3, 4, 5, 6,7, 4, 5, 6,7].map(() => <section>
               <div><TableCard>Criação de agendamento</TableCard></div>
               <div><TableCard>
                 <Calendar size={12}/>
                 Agendamento
               </TableCard></div>
               <div><TableCard>04/06/2025 às 22:00</TableCard></div>
-            </section>
+            </section>)}
             
           </main>
         </LogsTable>

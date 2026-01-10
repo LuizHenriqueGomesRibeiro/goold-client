@@ -1,31 +1,19 @@
-"use client"
+"use client";
 
 import { ReactSVG } from "react-svg";
-import styled, { css } from "styled-components";
-import CalendarSVG from "@/assets/calendar.svg";
-import PeopleSVG from "@/public/people.svg";
-import RightSVG from "@/public/right.svg";
-import LeftSVG from "@/public/left.svg";
-import LogoSVG from "@/public/logo.svg";
-import LogsSVG from "@/public/log.svg";
-import colors from "../../themes";
 
-export function Logo() {
-  return <LogoSVG />;
+interface ImageProps {
+  selected?: boolean;
+  size?: number;
 }
 
-const PreImageStyle = css<{ $selected?: boolean }>`
-  && {
-    color: ${({ $selected }) => ($selected ? colors.white : "currentColor")};
-    path, rect, circle {
-      fill: currentColor;
-    }
-  }
-`
+interface PreImageProps extends ImageProps {
+  src: string;
+}
 
-export function Calendar({ selected, size }: { selected?: boolean, size?: number }) {
+function preimage({ src, selected, size }: PreImageProps) {
   return <ReactSVG
-    src='/calendar.svg'
+    src={src}
     beforeInjection={(svg) => {
       svg.setAttribute("fill", selected ? "white" : "black");
       size && svg.setAttribute("width", `${size}`);
@@ -34,26 +22,26 @@ export function Calendar({ selected, size }: { selected?: boolean, size?: number
   />
 }
 
-const PrePeople = styled(PeopleSVG)<{ $selected?: boolean }>`
-  ${PreImageStyle}
-`;
-
-export function People({ selected }: { selected?: boolean }) {
-  return <PrePeople $selected={selected} />
+export function Logo(props: ImageProps) {
+  return preimage({ src: '/logo.svg', ...props });
 }
 
-const PreLog = styled(LogsSVG)<{ $selected?: boolean }>`
-  ${PreImageStyle}
-`;
-
-export function Right() {
-  return <RightSVG/>
+export function Calendar(props: ImageProps) {
+  return preimage({ src: '/calendar.svg', ...props });
 }
 
-export function Left() {
-  return <LeftSVG/>
+export function People(props: ImageProps) {
+  return preimage({ src: '/people.svg', ...props });
 }
 
-export function Log({ selected }: { selected?: boolean }) {
-  return <PreLog $selected={selected} />
+export function Right(props: ImageProps) {
+  return preimage({ src: '/right.svg', ...props });
+}
+
+export function Left(props: ImageProps) {
+   return preimage({ src: '/left.svg', ...props });
+}
+
+export function Log(props: ImageProps) {
+  return preimage({ src: '/log.svg', ...props });
 }

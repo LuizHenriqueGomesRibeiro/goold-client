@@ -45,3 +45,7 @@ export function Left(props: ImageProps) {
 export function Log(props: ImageProps) {
   return preimage({ src: '/log.svg', ...props });
 }
+
+export function Close(props: ImageProps) {
+  return preimage({ src: '/x.svg', ...props }); 
+}

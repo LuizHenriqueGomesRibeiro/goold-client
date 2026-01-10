@@ -1,44 +1,9 @@
 "use client";
 
-import { Calendar, SearcherContainer, Text, TopBar } from "../../components";
+import { Calendar, SearcherContainer, Table, Text, TopBar } from "../../components";
 import { SystemCommonTemplateComponent } from "../styles";
 import styled from "styled-components";
 import colors from "../../themes";
-
-const LogsTable = styled.div`
-  height: 100%;
-
-  > header {
-    width: 100%;
-    flex-direction: row;
-    display: flex;
-    margin-top: 20px;
-    border-bottom: 1px solid ${colors["light-brown"]};
-
-    > div {
-      padding: 12px;
-      width: 30%;
-    }
-  }
-
-  > main {
-    height: calc(100% - 114px);
-    overflow-y: auto;
-    > section {
-      border-bottom: 1px solid ${colors["light-brown"]};
-      flex-direction: row;
-      display: flex;
-      
-      > div {
-        width: 30%;
-        height: 60px;
-        padding: 0 12px;
-        display: flex;
-        align-items: center;
-      }
-    }
-  }
-`;
 
 const TableCard = styled.div`
   display: flex;
@@ -62,7 +27,7 @@ export default function LogsTemplate() {
     />
     <section>
       <SearcherContainer>
-        <LogsTable>
+        <Table columns={3}>
           <header>
             <div><Text type="normal-12">Tipo de atividade</Text></div>
             <div><Text type="normal-12">Módulo</Text></div>
@@ -79,7 +44,7 @@ export default function LogsTemplate() {
             </section>)}
             
           </main>
-        </LogsTable>
+        </Table>
       </SearcherContainer>
     </section>
   </SystemCommonTemplateComponent>

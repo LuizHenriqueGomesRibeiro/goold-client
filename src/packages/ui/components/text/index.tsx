@@ -1,7 +1,7 @@
 "use client";
 
 import styled, { css } from "styled-components";
-import colors from "../../themes";
+import colors, { ColorOptions } from "../../themes";
 
 const Title = css`
   color: ${colors.black};
@@ -22,6 +22,10 @@ const Normal = css<{ $selected?: boolean }>`
   > span {
     font-weight: 400;
   }
+
+  > strong {
+    font-weight: 700;
+  }
 `;
 
 const Normal12 = css`
@@ -31,8 +35,10 @@ const Normal12 = css`
 
 type TextType = "title" | "normal" | "normal-12";
 
-const TextComponent = styled.span<{ $type: TextType, $selected?: boolean }>`
+const TextComponent = styled.span<{ $type: TextType, $selected?: boolean, $color?: string }>`
   font-family: "Montserrat", sans-serif;
+
+  color: ${({ $color }) => $color && `${$color} !important`};
 
   ${({ $type }) => {
     switch ($type) {
@@ -51,8 +57,9 @@ type TextProps = {
   children: React.ReactNode;
   type?: TextType;
   selected?: boolean;
+  color?: ColorOptions
 };
 
-export default function Text({ children, type = "normal", selected = false }: TextProps) {
-  return <TextComponent $type={type} $selected={selected}>{children}</TextComponent>;
+export default function Text({ children, type = "normal", selected = false, color }: TextProps) {
+  return <TextComponent $type={type} $selected={selected} $color={color}>{children}</TextComponent>;
 }

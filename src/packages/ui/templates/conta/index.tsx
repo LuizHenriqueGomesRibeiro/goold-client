@@ -1,26 +1,31 @@
 "use client";
 
-import { TopBar } from "../../components";
+import { RegisterForm, TopBar } from "../../components";
+import useCadastro from "@/src/packages/core/hooks/cadastro";
 import styled from "styled-components";
-import colors from "../../themes";
 
-const Component = styled.div`
+const ContaTemplateComponent = styled.div`
   height: 100vh;
-  width: calc(100% - 260px);
-  display: flex;
-  position: relative;
-  float: right;
-  background-color: ${colors["secundary-layout"]};
-  
-  > body {
+  overflow: hidden;
+
+  > section {
+    margin: 100px auto 0 auto;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    
   }
 `
 
 export default function ContaTemplate() {
-  return <Component>
+  const { register } = useCadastro();
+  return <ContaTemplateComponent>
     <TopBar/>
-    <body>
-      
-    </body>
-  </Component>
+    <section>
+      <RegisterForm register={register}/>
+    </section>
+  </ContaTemplateComponent>
 }

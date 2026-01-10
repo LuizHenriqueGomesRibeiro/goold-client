@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "../../themes";
 import Text from "../text";
 
-const Component = styled.div`
+const LateralBarComponent = styled.div`
   width: 260px;
   position: fixed;
   height: 100vh;
@@ -60,7 +60,7 @@ const Component = styled.div`
 
 export default function LateralBar() {
 
-  return <Component>
+  return <LateralBarComponent>
     <header>
       <div>
         <Logo/>
@@ -94,5 +94,5 @@ export default function LateralBar() {
       </footer>
 
     </section>
-  </Component>
+  </LateralBarComponent>
 }

@@ -16,7 +16,7 @@ const Normal = css`
 
 type InputType = "password" | "normal";
 
-const Component = styled.span<{ $type: InputType, $disabled: boolean }>`
+const InputComponent = styled.span<{ $type: InputType, $disabled: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -83,7 +83,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({
   },
   ref
 ) => {
-    return <Component $type={type} $disabled={disabled}>
+    return <InputComponent $type={type} $disabled={disabled}>
       {label && <span>
         <Text type="normal">{label}</Text>
       </span>}
@@ -100,7 +100,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({
         type={type === "password" ? "password" : "text"}
         {...props}
       />}
-    </Component>
+    </InputComponent>
   }
 );
 

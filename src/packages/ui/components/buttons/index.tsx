@@ -42,7 +42,7 @@ const Lateral = css`
 
 type ButtonType = "primary" | "link";
 
-const Component = styled.button<{ $type: ButtonType }>`
+const ButtonComponent = styled.button<{ $type: ButtonType }>`
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
   justify-content: center;
@@ -71,8 +71,8 @@ export default function Button({
   ...props
 }: ButtonProps) {
   return (
-    <Component $type={variant} {...props}>
+    <ButtonComponent $type={variant} {...props}>
       {children}
-    </Component>
+    </ButtonComponent>
   );
 }

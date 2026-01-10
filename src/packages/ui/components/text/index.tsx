@@ -26,7 +26,7 @@ const Normal = css`
 
 type TextType = "title" | "normal";
 
-const Component = styled.span<{ $type: TextType }>`
+const TextComponent = styled.span<{ $type: TextType }>`
   font-family: "Montserrat", sans-serif;
 
   ${({ $type }) => {
@@ -46,5 +46,5 @@ type TextProps = {
 };
 
 export default function Text({ children, type = "normal" }: TextProps) {
-  return <Component $type={type}>{children}</Component>;
+  return <TextComponent $type={type}>{children}</TextComponent>;
 }

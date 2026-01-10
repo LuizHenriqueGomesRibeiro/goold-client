@@ -12,11 +12,6 @@ const CenteredContainer = styled.div`
 
   flex: 1;
 
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-
   gap: 1.5625rem;
 
   height: calc(100vh - 86px);

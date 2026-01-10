@@ -5,7 +5,7 @@ import { Logo } from "../images";
 import colors from "../../themes";
 import Button from "../buttons";
 
-const Component = styled.div`
+const LoginHeaderComponent = styled.div`
   border-bottom: 1px solid ${colors['light-brown']};
   position: fixed;
   width: 100vw;
@@ -27,10 +27,10 @@ const Component = styled.div`
 `
 
 export default function LoginHeader() {
-  return <Component>
+  return <LoginHeaderComponent>
     <div>
       <Logo/>
       <Button>Cadastre-se</Button>
     </div>
-  </Component>
+  </LoginHeaderComponent>
 }

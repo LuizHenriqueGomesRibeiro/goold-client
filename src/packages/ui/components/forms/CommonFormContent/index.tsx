@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import colors from "../../../themes";
 
-export const Component = styled.div`
+export const CommonFormContentComponent = styled.div`
   padding: 1.875rem;
   display: flex;
   flex-direction: column;
@@ -15,9 +15,9 @@ export const Component = styled.div`
 `;
 
 export default function CommonFormContent({ children }: { children: React.ReactNode }) {
-  return <Component 
+  return <CommonFormContentComponent 
 
   >
     {children}
-  </Component>
+  </CommonFormContentComponent>
 }

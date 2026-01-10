@@ -12,8 +12,8 @@ const Title = css`
   height: 34px;
 `;
 
-const Normal = css`
-  color: ${colors.black};
+const Normal = css<{ $selected?: boolean }>`
+  color: ${({ $selected }) => $selected ? colors.white : colors.black};
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -26,7 +26,7 @@ const Normal = css`
 
 type TextType = "title" | "normal";
 
-const TextComponent = styled.span<{ $type: TextType }>`
+const TextComponent = styled.span<{ $type: TextType, $selected?: boolean }>`
   font-family: "Montserrat", sans-serif;
 
   ${({ $type }) => {
@@ -43,8 +43,9 @@ const TextComponent = styled.span<{ $type: TextType }>`
 type TextProps = {
   children: React.ReactNode;
   type?: TextType;
+  selected?: boolean;
 };
 
-export default function Text({ children, type = "normal" }: TextProps) {
-  return <TextComponent $type={type}>{children}</TextComponent>;
+export default function Text({ children, type = "normal", selected = false }: TextProps) {
+  return <TextComponent $type={type} $selected={selected}>{children}</TextComponent>;
 }

@@ -1,7 +1,7 @@
+import StyledComponentsRegistry from "../lib/styled-components-registry";
+import { Montserrat } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
-
-import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -21,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`h-full ${montserrat.className}`}>
       <body className="min-h-screen w-full">
-        {children}
+        <StyledComponentsRegistry>
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

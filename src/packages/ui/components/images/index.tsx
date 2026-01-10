@@ -3,6 +3,8 @@
 import CalendarSVG from "@/public/calendar.svg";
 import styled, { css } from "styled-components";
 import PeopleSVG from "@/public/people.svg";
+import RightSVG from "@/public/right.svg";
+import LeftSVG from "@/public/left.svg";
 import LogoSVG from "@/public/logo.svg";
 import LogsSVG from "@/public/log.svg";
 import colors from "../../themes";
@@ -40,6 +42,14 @@ export function People({ selected }: { selected?: boolean }) {
 const PreLog = styled(LogsSVG)<{ $selected?: boolean }>`
   ${PreImageStyle}
 `;
+
+export function Right() {
+  return <RightSVG/>
+}
+
+export function Left() {
+  return <LeftSVG/>
+}
 
 export function Log({ selected }: { selected?: boolean }) {
   return <PreLog $selected={selected} />

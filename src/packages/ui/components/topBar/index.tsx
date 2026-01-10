@@ -1,3 +1,5 @@
+"use client"
+
 import styled from "styled-components";
 import colors from "../../themes";
 import Text from "../text";
@@ -14,9 +16,9 @@ const TopBarComponent = styled.div`
   gap: 6px;
 `
 
-export default function TopBar() {
+export default function TopBar({ text, title }: { title: string, text: string }) {
   return <TopBarComponent>
-    <Text type="title">Minha conta</Text>
-    <Text type="normal">Ajuste informações da sua conta de forma simples</Text>
+    <Text type="title">{title}</Text>
+    <Text type="normal">{text}</Text>
   </TopBarComponent>
 }

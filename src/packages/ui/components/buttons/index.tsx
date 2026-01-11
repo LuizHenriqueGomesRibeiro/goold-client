@@ -2,6 +2,7 @@
 
 import styled, { css } from "styled-components";
 import colors from "../../themes";
+import { Close } from "../images";
 
 const Primary = css`
   background-color: ${colors.black};
@@ -36,11 +37,20 @@ const Link = css`
   text-underline-position: from-font;
 `;
 
-const Lateral = css`
-
+const CloseStyled = css`
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 5px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  aspect-ratio: 1/1;
+  border-radius: 60px;
+  background: #000;
 `
 
-type ButtonType = "primary" | "link";
+type ButtonType = "primary" | "link" | "close";
 
 const ButtonComponent = styled.button<{ $type: ButtonType }>`
   font-family: "Montserrat", sans-serif;
@@ -51,6 +61,8 @@ const ButtonComponent = styled.button<{ $type: ButtonType }>`
 
   ${({ $type }) => {
     switch ($type) {
+      case "close":
+        return CloseStyled;
       case "link":
         return Link;
       case "primary":
@@ -70,9 +82,8 @@ export default function Button({
   variant = "primary",
   ...props
 }: ButtonProps) {
-  return (
-    <ButtonComponent $type={variant} {...props}>
-      {children}
-    </ButtonComponent>
-  );
+  const currentChildren = variant === 'close' ? <Close/> : children;
+  return <ButtonComponent $type={variant} {...props}>
+    {currentChildren}
+  </ButtonComponent>
 }

@@ -1,10 +1,25 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import colors from "../../themes";
 import React from "react";
 
-const LogsTable = styled.div<{ columns: number }>`
+const lastColumnRight = css`
+  > div:last-child {
+    justify-content: right;
+    flex-direction: row;
+    display: flex;
+    margin: auto 0;
+    gap: 10px;
+    
+    > button {
+      align-self: center;
+    }
+  }
+
+`
+
+const LogsTable = styled.div<{ columns: number, $rightLastColumn: boolean }>`
   height: 100%;
 
   > header {
@@ -18,6 +33,8 @@ const LogsTable = styled.div<{ columns: number }>`
       padding: 12px;
       width: ${({ columns }) => `${100 / columns}%`};
     }
+
+    ${({ $rightLastColumn }) => $rightLastColumn && lastColumnRight};
   }
 
   > main {
@@ -44,12 +61,14 @@ const LogsTable = styled.div<{ columns: number }>`
         display: flex;
         align-items: center;
       }
+      
+      ${({ $rightLastColumn }) => $rightLastColumn && lastColumnRight};
     }
   }
 `;
 
-export default function Table({ children, columns }: { children: React.ReactNode, columns: number }) {
-  return <LogsTable columns={columns}>
+export default function Table({ children, columns, $rightLastColumn = false }: { children: React.ReactNode, columns: number, $rightLastColumn?: boolean }) {
+  return <LogsTable columns={columns} $rightLastColumn={$rightLastColumn}>
     {children}
   </LogsTable>
 }

@@ -4,6 +4,7 @@ import { Close, ScheduleRoom, ScheduleTransation, SearcherContainer, Table, Text
 import { SystemCommonTemplateComponent } from "../styles";
 import styled from "styled-components";
 import colors from "../../themes";
+import Button from "../../components/buttons";
 
 const ClientName = styled.div`
   justify-content: center;
@@ -37,7 +38,7 @@ export default function AgendamentosTemplate() {
     />
     <section>
       <SearcherContainer>
-        <Table columns={5}>
+        <Table columns={5} $rightLastColumn>
           <header>
             <div><Text type="normal-12">Data agendamento</Text></div>
             <div><Text type="normal-12">Nome</Text></div>
@@ -57,7 +58,7 @@ export default function AgendamentosTemplate() {
               <ScheduleRoom/>
               <ScheduleTransation element={element}/>
               <div>
-                <Close/>
+                {element !== 2 && <Button variant="close" children />}
               </div>
             </ClientColor>)}
           </main>

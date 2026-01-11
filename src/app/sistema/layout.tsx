@@ -12,9 +12,9 @@ const SystemLayout = styled.div`
 const CurrentLayout = styled.div`
   width: calc(100% - 260px);
   margin-left: 260px;
-  height: 100vh;
   background-color: ${colors["secundary-layout"]};
   z-index: 10;
+  height: 100vh;
 `
 
 export default function Layout({ children }: {

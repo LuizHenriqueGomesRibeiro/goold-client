@@ -38,11 +38,10 @@ const LogsTable = styled.div<{ columns: number, $rightLastColumn: boolean }>`
   }
 
   > main {
-    height: calc(100% - 114px);
-    overflow-y: auto;
-
-    scrollbar-width: none;
     -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: auto;
+    height: calc(100vh - 366px);
 
     &::-webkit-scrollbar {
       width: 0;

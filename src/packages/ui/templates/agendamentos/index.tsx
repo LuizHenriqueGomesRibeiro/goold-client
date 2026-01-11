@@ -1,10 +1,10 @@
 "use client";
 
-import { Close, ScheduleRoom, ScheduleTransation, SearcherContainer, Table, Text, TopBar } from "../../components";
+import { Close, GooldModal, ScheduleRoom, ScheduleTransation, SearcherContainer, Table, Text, TopBar } from "../../components";
 import { SystemCommonTemplateComponent } from "../styles";
+import Button from "../../components/buttons";
 import styled from "styled-components";
 import colors from "../../themes";
-import Button from "../../components/buttons";
 
 const ClientName = styled.div`
   justify-content: center;
@@ -15,9 +15,9 @@ const ClientName = styled.div`
 
   > span {
     justify-content: center;
-    text-align: left;
-    align-items: center;
     align-content: center;
+    align-items: center;
+    text-align: left;
     width: 100%;
   }
 `
@@ -47,7 +47,7 @@ export default function AgendamentosTemplate() {
             <div><Text type="normal-12">Ação</Text></div>
           </header>
           <main>
-            {[0, 1, 1, 0, 0, 2, 0, 1, 0, 0].map((element) => <ClientColor element={element}>
+            {[0, 1, 1, 0, 0, 2, 0, 1, 0, 0].map((element, index) => <ClientColor key={index} element={element}>
               <div>Criação de agendamento</div>
               <ClientName>
                 <Text type="normal">Camila Mendes</Text>
@@ -65,5 +65,6 @@ export default function AgendamentosTemplate() {
         </Table>
       </SearcherContainer>
     </section>
+    {/* <GooldModal/> */}
   </SystemCommonTemplateComponent>
 }

@@ -35,12 +35,18 @@ export default function LogsTemplate() {
           </header>
           <main>
             {[1, 2, 3, 4, 5, 6,7, 4, 5, 6,7].map(() => <section>
-              <div><TableCard>Criação de agendamento</TableCard></div>
-              <div><TableCard>
-                <Calendar size={12}/>
-                Agendamento
-              </TableCard></div>
-              <div><TableCard>04/06/2025 às 22:00</TableCard></div>
+              <div>
+                <TableCard>Criação de agendamento</TableCard>
+              </div>
+              <div>
+                <TableCard>
+                  <Calendar size={12}/>
+                  Agendamento
+                </TableCard>
+              </div>
+              <div>
+                <TableCard>04/06/2025 às 22:00</TableCard>
+              </div>
             </section>)}
             
           </main>

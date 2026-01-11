@@ -9,10 +9,9 @@ import Input from "../input";
 const SearcherContainerComponent = styled.div`
   flex-direction: column;
   display: flex;
-  height: 100%;
   width: 100%;
   gap: 25px;
-
+  
   > section {
     border: 1px solid ${colors["light-brown"]};
     flex-direction: column;
@@ -38,10 +37,6 @@ const SearcherContainerComponent = styled.div`
           width: 441px !important;
         }
       }
-    }
-
-    > main {
-      height: 100%;
     }
   }
 
